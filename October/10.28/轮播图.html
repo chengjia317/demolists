@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../myfn.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style:none;
+        }
+        #box{
+            width: 750px;
+            height: 320px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        #big{
+            width: 100%;
+            height: 100%;
+            position: relative;
+
+        }
+        #big ul{
+            width: 4500px;
+            height: 100%;
+            position: absolute;
+            top:0;
+            left: 0;
+        }
+        #big ul li{
+           width: 750px;
+           height: 320px; 
+           float: left;
+        }
+        #small ol{
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            z-index: 999;
+        }
+        #small ol li{
+            width: 20px;
+            height: 20px;
+            background-color: #ccc;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            margin-right: 3px;
+        }
+        #small ol  .active{
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="big">
+            <ul id="ul">
+                <li><img src="imgs/pic01.jpg" alt=""></li>
+                <li><img src="imgs/pic02.jpg" alt=""></li>
+                <li><img src="imgs/pic03.jpg" alt=""></li>
+                <li><img src="imgs/pic04.jpg" alt=""></li>
+                <li><img src="imgs/pic05.jpg" alt=""></li>
+            </ul>
+        </div>
+        <div id="small">
+            <ol id="ol">
+                 
+            </ol>
+        </div>
+    </div>
+<script>
+    window.onload=function(){
+        //克隆一张图片
+        var currentIndex=0,ballIndex=0;
+        var oLi=$('ul').children;
+        $('ul').appendChild(oLi[0].cloneNode(true));
+        //创建ol 
+        for(var i=0;i<oLi.length-1;i++){
+        var aLi=document.createElement('li');
+        $('ol').appendChild(aLi);
+        }
+        //第一个圆点添加样式
+        $('ol').children[0].className='active';
+        //鼠标进入状态
+        var li=$('ol').children;
+        for(var j=0;j<li.length;j++){
+            (function(index){
+                var list =li[index];
+                    list.onmouseover=function(){
+                        for(var i=0;i<li.length;i++){
+                            li[i].className='';
+                        }
+                        this.className='active';
+                        //ul动起来
+                        var time=null,target=-750*index;
+                clearInterval(time);
+                time=setInterval(function(){
+                    $('ul').style.left=$('ul').offsetLeft-speed+'px';
+                    if(Math.abs(target-$('ul').offsetLeft)<=Math.abs(-speed)){
+                        $('ul').style.left=target+'px';
+                    }
+                },1000)
+                currentIndex=index;
+                ballIndex=index;
+        }
+            })(j)
+        }
+        
+    }
+</script>
+</body>
+</html>

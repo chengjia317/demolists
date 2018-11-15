@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">向右走</button>
+    <div id="box"></div>
+</body>
+<script>
+    window.onload=function(){
+        var box=document.getElementById('box');
+        var btn=document.getElementById('btn');
+        
+        btn.onclick=function(){
+            move(box,{'width':800,'top':100},function(){
+                move(box,{'height':200,'left':300},null);
+            });
+        }
+         function move(obj,json,fn){
+        clearInterval(obj.timer);
+        var begin=0,speed=0,target=0;
+        obj.timer=setInterval(function(){
+            var flag=true;
+            for(var key in json){
+                begin=parseInt(getComputedStyle(obj,null)[key]);
+                target=parseInt(json[key]);
+                speed=(target-begin)*0.2;
+                speed=speed>0?Math.ceil(speed):Math.floor(speed);
+                obj.style[key]=begin+speed+'px';
+                if(begin!==target){
+                    flag=false;
+                }
+            }
+            if(flag){
+                    clearInterval(obj.timer);
+                    if(fn){
+                        fn();
+                    }
+                }
+        },20);
+    }
+    }
+</script>
+</html>

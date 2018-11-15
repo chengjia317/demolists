@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>验证传入图片格式</title>
+</head>
+<body>
+	<label>上传图片格式验证：</label>
+	<input type="file" id="input">
+<script>
+	window.onload=function(){
+		var input=document.getElementById('input');
+		input.onchange=function(){
+			var value=input.value;
+			var newValue=value.substr(value.lastIndexOf('.'));
+			if(newValue.toLowerCase()==='.jpg'||newValue.toLowerCase()==='.png'||newValue.toLowerCase()==='.bmp'){
+				alert('上传成功');
+			}else{
+				alert('格式不正确，请重新上传');
+			}
+		}
+	};
+</script>
+</body>
+</html>

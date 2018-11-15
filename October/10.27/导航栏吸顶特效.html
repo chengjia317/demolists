@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../myfn.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            vertical-align: top;
+            width: 100%;
+        }
+        section{
+            width: 75%;
+            margin: 0 auto;
+        }
+        .nav{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+<header id="head">
+    <img src="images/top.png" alt="">
+</header>
+<nav  id="nav">
+    <img src="images/nav.png" alt="">
+</nav>
+<section>
+    <img src="images/body01.png" alt="">
+    <img src="images/body02.png" alt="">
+</section>
+<script>
+    window.onload=function(){
+        var headH=$('head').offsetHeight;
+        window.onscroll=function(){
+            var scrollH=scroll().top;
+            if(scrollH>=headH){
+                $('nav').className='nav';
+            }else{
+                $('nav').className='';
+            }
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">向右走</button>
+    <div id="box"></div>
+</body>
+<script>
+    window.onload=function(){
+        var box=document.getElementById('box');
+        var btn=document.getElementById('btn');
+        
+        btn.onclick=function(){
+            var time=null,target=800;
+            clearInterval(time);
+            time=setInterval(function(){
+                var speed=(target-box.offsetLeft)*0.2;
+                speed=speed>0?Math.ceil(speed):Math.floor(speed);
+                box.style.left=box.offsetLeft+speed+'px';
+                box.innerText=box.offsetLeft+'';
+                if(box.offsetLeft===target){
+                    clearInterval(time);
+                }
+            },20);
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+		body{
+			background-color: pink;
+		}
+		#div{
+			width: 900px;
+			height: 70px;
+			background-color: #fff;
+			margin:100px auto;
+			background:url('images/doubleOne.png') no-repeat right  #fff;
+			position: relative;
+			border-radius: 5px;
+		}
+		#ul{
+			position: relative;
+		}
+		li{
+			float: left;
+			width: 90px;
+			height:100%;
+			text-align: center;
+			line-height: 70px;
+			cursor: pointer;
+		}
+		#mall{
+			width: 88px;
+			height: 63px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background:url('images/tMall.png') no-repeat;
+		}
+	</style>
+</head>
+<body>
+	<div id="div">
+		<span id="mall"></span>
+		<ul id="ul">
+        <li>双11狂欢</li>
+        <li>服装会场</li>
+        <li>数码家电</li>
+        <li>家具建材</li>
+        <li>母婴童装</li>
+        <li>手机会场</li>
+        <li>美妆会场</li>
+        <li>进口会场</li>
+        <li>飞猪旅行</li>
+    </ul>
+	</div>
+<script>
+	window.onload=function(){
+		var mall=document.getElementById('mall');
+		var ul=document.getElementById('ul');
+		var oLi=ul.children;
+		var beginX=0;
+		for(var i=0;i<oLi.length;i++){
+			var li=oLi[i];
+			li.onmouseover=function(){
+				target=this.offsetLeft;
+			};
+			li.onmousedown=function(){
+				beginX=this.offsetLeft;
+			};
+			li.onmouseout=function(){
+				target=beginX;
+			}
+
+		}
+		var begin=0,target=0;
+		setInterval(function(){
+			begin+=(target-begin)*0.2;
+			mall.style.left=begin+'px';
+
+		},20)
+	};
+</script>
+</body>
+</html>

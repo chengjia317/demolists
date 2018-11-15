@@ -1,0 +1,66 @@
+*{
+	margin: 0;
+	padding: 0;
+	border:none;
+}
+img{
+	vertical-align: top;
+}
+.box{
+	width: 310px;
+	height: 260px;
+	margin: 100px auto;
+	position: relative;
+	overflow: hidden;
+}
+.top{
+	width: 310px;
+	height: 220px;
+	position: relative;	
+}
+.main{
+	width: 620px;
+	height: 220px;
+}
+.pic{
+	position: absolute;
+	width: 310px;
+	height: 220px;
+}
+.bottom{
+	cursor: pointer;
+	width: 310px;
+	height: 40px;
+	text-align: center;
+}
+.prev,.next{
+	width: 20px;
+	height: 34px;
+	position: absolute;
+	top: 50%;
+	margin-top:-34px; 
+}
+.prev{
+	background: url('../images/icon.png') no-repeat 0 0;
+	left: 0;
+}
+.next{
+	background: url('../images/icon.png') no-repeat -9px -45px;
+	right: 0;
+}
+.span{
+	background: url('../images/icon.png') no-repeat -24px -790px;
+	width: 24px;
+	height: 5px;
+	margin: 5px;
+	display: inline-block;
+	text-indent: 999em;
+}
+.active{
+	text-indent: 999em;
+	margin: 5px;
+	width: 24px;
+	height: 5px;
+	display: inline-block;
+	background: url('../images/icon.png') no-repeat 0 -770px;
+}

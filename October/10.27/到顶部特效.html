@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../myfn.js"></script>
+    <style>
+        *{  margin: 0;
+            padding: 0;
+        }
+        p{
+            text-align: center;
+            font-size: 20px;
+            height: 60px;
+        }
+        span{
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            display: none;
+        }
+        span img{
+            width:52px;
+            height:52px;
+        }
+    </style>
+</head>
+<body>
+<span id="span"><img src="images/return.png" alt=""></span>
+<p>红尘滚滚，不如你眉间一点朱砂</p>
+<p>红尘滚滚，不如你眉间一点朱砂</p>
+<p>红尘滚滚，不如你眉间一点朱砂</p>
+<p>红尘滚滚，不如你眉间一点朱砂</p>
+<p>红尘滚滚，不如你眉间一点朱砂</p>
+<p>红尘滚滚，不如你眉间一点朱砂</p>
+<p>红尘滚滚，不如你眉间一点朱砂</p>
+<p>红尘滚滚，不如你眉间一点朱砂</p>
+<p>红尘滚滚，不如你眉间一点朱砂</p>
+<p>红尘滚滚，不如你眉间一点朱砂</p>
+<p>红尘滚滚，不如你眉间一点朱砂</p>
+<p>红尘滚滚，不如你眉间一点朱砂</p>
+<p>红尘滚滚，不如你眉间一点朱砂</p>
+<p>红尘滚滚，不如你眉间一点朱砂</p>
+<p>红尘滚滚，不如你眉间一点朱砂</p>
+<p>红尘滚滚，不如你眉间一点朱砂</p>
+<p>红尘滚滚，不如你眉间一点朱砂</p>
+<p>红尘滚滚，不如你眉间一点朱砂</p>
+<p>红尘滚滚，不如你眉间一点朱砂</p>
+<p>红尘滚滚，不如你眉间一点朱砂</p>
+<p>红尘滚滚，不如你眉间一点朱砂</p>
+<script>
+    window.onload=function(){
+        window.onscroll=function(){
+            var scrollH=scroll().top;
+            if(scrollH>0){
+                $('span').style.display='block';
+            }else{
+                $('span').style.display='none';
+            }
+            var time=null,end=0;
+            begin=scrollH;
+            //console.log(begin,scrollH);
+            $('span').onclick=function(){
+                clearInterval(time);
+                time=setInterval(function(){
+                    begin+=(end-begin)*0.2;
+                    //console.log(begin,end);
+                    window.scrollTo(0,begin);
+                    if(Math.round(begin)===end){
+                       clearInterval(time);
+                   }
+                },20)
+            }
+        }
+    }
+</script>
+</body>
+</html>

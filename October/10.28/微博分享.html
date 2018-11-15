@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #share{
+            width: 26px;
+            height: 26px;
+            position: absolute;
+            background: url(imgs/share.gif) no-repeat;
+            display: none;
+        }
+        p{
+            width: 300px;
+            margin: 100px;
+        }
+    </style>
+</head>
+<body>
+    <span id="share"></span>    
+    <p>腾讯科技讯 据外媒报道，微软联合创始人比尔-盖茨是很多有抱负的企业家崇拜的偶像。但是，阿里巴巴创始人马云在周四却称，在他刚开出道的时候，他非常恨盖茨。 “在我年轻的时候，我非常恨比尔-盖茨，因为我当时觉得微软抢走了我们的一切机会。”马云在以色列特拉维夫的一次创新峰会上演讲时说。 “还有IBM、甲骨文，它们抢走了一切机会。”马云继续说。 在1999年创立阿里巴巴的时候，马云认为这些大公司索要的高昂价格让初创公司往往很难用上它们的高科技，就像他的阿里巴巴当年还小的时候一样。但是，他继续说，他很快意识到这不是盖茨或其他大咖的错。相反，他用了阻碍很多潜在企业家进步的常见借口抹杀了自己的机会。</p>
+<script>
+    window.onload=function(){
+        var share=document.getElementById('share');
+        var p=document.getElementsByTagName('p')[0];
+        var text='';
+        //获取选中内容并让图标展示
+        p.onmouseup=function(ev){
+           var text=window.getSelection().toString();
+            share.style.display='block';
+            share.style.top=ev.clientY+'px';
+            share.style.left=ev.clientX+'px';
+            }
+        //点击白板内容，图标隐藏，点击文字，跳转微博链接
+        document.onmousedown=function(){
+            var targetId=event.target.id;
+            if(targetId!=='share'){
+                share.style.display='none';
+            }else{
+                window.location.href='http://v.t.sina.com.cn/share/share.php?searchPic=false&title=' + text +'&url=https://github.com/xuanzhihua'
+            }
+        }
+        
+    };
+</script>
+</body>
+</html>

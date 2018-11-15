@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#div{
+			width: 900px;
+			height: 40px;
+			/*background-color: pink;*/
+			margin: 70px auto;
+			position: relative;
+			
+		}
+		#nav{
+			width: 850px;
+			height: 100%;
+			background-color: #ccc;
+			border-radius: 5px;
+			position: relative;		
+
+		}
+		#fg{
+			width: 0;
+			height: 100%;
+			background-color: orangered;
+			border-top-left-radius: 8px;
+			border-bottom-left-radius: 8px;
+		}
+		#btn{
+			position: absolute;
+			top: -4px;
+			/*left: 0;*/
+			height: 50px;
+			width: 30px;
+			border-radius: 8px;
+			background-color: orange;
+		}
+		#num{
+			position: absolute;
+			right: 15px;
+			top: 9px;
+		}
+	</style>
+</head>
+<body>
+	<div id="div">
+		<div id="nav">
+			<div id="fg"></div>
+			<span id="btn"></span>
+		</div>
+		<div id="num">0</div>
+	</div>
+<script>
+	window.onload=function(){
+		var nav=document.getElementById('nav');
+		var btn=document.getElementById('btn');
+		var num=document.getElementById('num');
+		var fg=document.getElementById('fg');
+		btn.onmousedown=function(ev){
+			var beginX=ev.clientX-btn.offsetLeft;
+			document.onmousemove=function(ev1){
+				//移动距离
+				var x=ev1.clientX-beginX;
+				
+				//边界值处理
+				if(x<0){
+					x=0;
+				}else if(x>=nav.offsetWidth-btn.offsetWidth){
+					x=nav.offsetWidth-btn.offsetWidth;
+				}
+				//动起来
+				btn.style.left=x+'px';
+				//前景色变化
+				fg.style.width=x+'px';
+				num.innerText=Math.floor(x/(nav.offsetWidth-btn.offsetWidth)*100)+'%';
+				//阻止冒泡
+				return false;
+
+			}
+		};
+		document.onmouseup=function(){
+			this.onmousemove=null;
+		}
+	};
+	
+
+</script>
+</body>
+</html>

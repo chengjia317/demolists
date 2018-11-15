@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../myfn.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            border: none;
+            list-style:none;
+        }
+        a{
+            text-decoration: none;
+            color:#000;
+        }
+        #div{
+            width: 900px;
+            height: 40px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+        #div ul{
+            width: 910px;
+        }
+        #ul li{
+            float: left;
+            width: 100px;
+            line-height: 40px;
+            text-align: center;
+            border-right:1px dashed #ccc;
+          
+            position: relative;
+        }
+        #ul li a{
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+        }
+        span{
+            position: absolute;
+            top: 40px;
+            left: 0;
+            background-color: skyblue;
+            width: 100px;
+            height: 40px;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div id="div">
+        <ul id="ul">
+        <li>
+            <a href="">首页</a>
+            <span></span>
+            <audio src="source/a1.mp3"></audio>
+        </li>
+        <li><a href="">新头条</a><span></span>
+            <audio src="source/a2.mp3"></audio>
+        </li>
+        <li><a href="">电视剧</a><span></span>
+            <audio src="source/a3.mp3"></audio>
+        </li>
+        <li><a href="">新电影</a><span></span>
+            <audio src="source/a4.mp3"></audio>
+        </li>
+        <li><a href="">小游戏</a><span></span>
+            <audio src="source/a5.mp3"></audio>
+        </li>
+        <li><a href="">小说汇</a><span></span>
+            <audio src="source/a6.mp3"></audio>
+        </li>
+        <li><a href="">旅游假</a><span></span>
+            <audio src="source/a7.mp3"></audio>
+        </li>
+        <li><a href="">正品购</a><span></span>
+            <audio src="source/a8.mp3"></audio>
+        </li>
+        <li><a href="">今日团</a><span></span>
+            <audio src="source/a9.mp3"></audio>
+        </li>
+        </ul>
+    </div>
+<script>
+    window.onload=function(){
+        var oLi=$('ul').children;
+        for(var i=0;i<oLi.length;i++){
+            oLi[i].style.background= "url('images/_r1_c1.png') no-repeat 0"+ (i+1)*-40+'px';
+            oLi[i].onmouseover=function(){
+                move(this.children[1],{'top':0},null);
+                this.children[2].play();
+                this.children[2].currentTime=0;
+            };
+            oLi[i].onmouseout=function(){
+                move(this.children[1],{'top':40},null)
+            };
+        }
+        document.onkeydown=function(ev){
+            var keyCode=ev.keyCode-49;
+            move(oLi[keyCode].children[1],{'top':0},function(){
+            move(oLi[keyCode].children[1],{'top':40},null)
+            });
+            oLi[keyCode].children[2].play();
+            oLi[keyCode].children[2].currentTime=0;
+        }
+    }
+
+</script>
+</body>
+</html>
