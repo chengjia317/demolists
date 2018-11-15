@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>成绩验证</title>
+	<style>
+		#input{
+			border: 1px solid darkgray;
+			outline: none;
+		}
+		#span{
+			color: #ccc;
+			font-size: 13px;
+		}
+		.right{
+			background:url(images/right.png) no-repeat 0 center ;
+			-webkit-background-size: 15px;
+			background-size: 15px;
+			margin-left: 10px;
+			padding-left: 20px;
+			color: green !important;
+		}
+		.error{
+			background:url(images/error.png) no-repeat 0 center ;
+			-webkit-background-size: 15px;
+			background-size: 15px;
+			margin-left: 10px;
+			padding-left: 20px;
+			color: red !important;
+		}
+	</style>
+</head>
+<body>
+	<div>
+	<label>您的成绩:</label>
+	<input id="input" type="text" placeholder="请输入成绩">
+	<span id="span"  >请输入您的成绩</span>
+	</div>
+</body>
+<script>
+	window.onload=function(){
+		var input=document.getElementById('input');
+		var span=document.getElementById('span');
+		input.onblur=function(){
+			var value=parseFloat(input.value);
+			if(isNaN(value)){
+				span.innerText='输入格式错误！'
+				span.className='error';
+				input.style.borderColor='red';
+			}
+			else if(value>=0&&value<=100){
+				span.innerText='输入成绩正确！'
+				span.className='right';
+				input.style.borderColor='green';
+			}else{
+				span.innerText='请输入0-100的数字！'
+				span.className='error';
+				input.style.borderColor='red';
+			}
+		};
+		input.onfocus=function(){
+			span.innerText='请输入成绩';
+			span.className='';
+			input.style.borderColor='darkgray';
+			input.value='';
+		}
+	};
+</script>
+</html>

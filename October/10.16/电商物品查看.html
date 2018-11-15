@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>电商物品查看</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		#div{
+			width: 360px;
+			height: 70px;
+			border: 1px solid #ccc;
+			margin: 100px auto;
+			padding-top: 360px;
+			background:url('images/01big.jpg') no-repeat;
+		}
+		#div ul{
+			cursor: pointer;
+		}
+		#div li{
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<div id="div">
+		<ul>
+			<li><img src="images/01.jpg"></li>
+			<li><img src="images/02.jpg"></li>
+			<li><img src="images/03.jpg"></li>
+			<li><img src="images/04.jpg"></li>
+			<li><img src="images/05.jpg"></li>
+		</ul>
+	</div>
+<script>
+	window.onload=function(){
+		var div=document.getElementById('div');
+		var oLi=document.getElementsByTagName('li');
+		for(var i=0;i<oLi.length;i++){
+			oLi[i].index=i+1;
+			oLi[i].onmouseover=function(){
+			div.style.background='url("images/0'+this.index+'big.jpg") no-repeat';
+			};
+
+		}
+	}
+</script>
+</body>
+</html>

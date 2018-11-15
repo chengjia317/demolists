@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>全选反选</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	#div1{
+		width: 400px;
+		margin: 100px auto;
+		border: 1px solid #ccc;
+		padding: 20px;
+		box-shadow: 0 0 10px #000;
+	}
+	#div2 h2{
+		text-align: center;
+	}
+	#div3{
+		margin: 10px 0;
+	}
+	#div4{
+		margin-top: 10px;
+		text-align: center;
+	}
+	</style>
+</head>
+<body>
+	<div id="div1">
+		<div id="div2">
+			<h2>歌曲排行榜</h2><hr>			
+		</div>
+		<div id="div3">
+			<input type="checkbox">1.我的一个道姑朋友<br>
+			<input type="checkbox">2.琴师<br>
+			<input type="checkbox">3.芊芊<br>
+			<input type="checkbox">4.凉凉<br>
+			<input type="checkbox">5.九张机<br>
+			<input type="checkbox">6.锦鲤抄<br>
+			<input type="checkbox">7.长安忆
+		</div>
+		<div id="div4">
+			<hr>
+			<button id="btn1">全选</button>
+			<button id="btn2">取消选中</button>
+			<button id="btn3">反选</button>
+		</div>
+	</div>
+<script>
+	window.onload=function(){
+		var btn1=document.getElementById('btn1');
+		var btn2=document.getElementById('btn2');
+		var btn3=document.getElementById('btn3');
+		var oInput=document.getElementsByTagName('input');
+		btn1.onclick=function(){
+			for(var i=0;i<oInput.length;i++){
+			oInput[i].checked=true;
+			}
+		};
+		btn2.onclick=function(){
+			for(var i=0;i<oInput.length;i++){
+			oInput[i].checked=false;
+			}
+		};
+		btn3.onclick=function(){
+			for(var i=0;i<oInput.length;i++){
+			oInput[i].checked=!oInput[i].checked;
+			}
+		};
+	};
+</script>
+</body>
+</html>

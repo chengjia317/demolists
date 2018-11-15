@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>百度换肤</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		body{
+			background: url("images/1.jpg") no-repeat;
+			-webkit-background-size: cover;
+			background-size: cover;
+		}
+		#box{
+			background-color: rgba(255,255,255,0.5);
+		}
+		#ul{
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+		}
+		#ul li img{
+			width: 180px;
+			height: 120px;
+			margin: 10px auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<ul id="ul">
+			<li><img src="images/1.jpg" ></li>
+			<li><img src="images/2.jpg" ></li>
+			<li><img src="images/3.jpg" ></li>
+			<li><img src="images/4.jpg" ></li>
+			<li><img src="images/5.jpg" ></li>
+		</ul>
+	</div>
+<script>
+	window.onload=function(){
+		var oLi=document.getElementsByTagName('li');
+
+		for(var i=0;i<oLi.length;i++){
+			oLi[i].index=i+1;//每个li都绑定索引
+			oLi[i].onclick=function(){
+				document.body.style.background='url("images/'+this.index+'.jpg") no-repeat';
+			};
+		}
+		
+	};
+</script>
+</body>
+</html>

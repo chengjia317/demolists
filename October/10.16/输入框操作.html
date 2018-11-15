@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>输入框操作</title>
+	<style>
+		input{
+			outline: none;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" value="请输入XXX" style="color: #ccc">
+<script>
+	window.onload=function(){
+		var oInput=document.getElementsByTagName('input')[0];
+		oInput.onfocus=function(){
+			oInput.style.width='400px'
+			oInput.style.height='40px';
+		};
+		oInput.onblur=function(){
+			oInput.style.width='300px'
+			oInput.style.height='50px';
+			oInput.style.borderColor='red';
+		}
+	};
+</script>
+</body>
+</html>
