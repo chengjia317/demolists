@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简单轮播图</title>
+</head>
+<body>
+	<div>
+		<img id="img" src="img/icon_01.png" alt=""><br>
+		<button id="prev">上一张</button>
+		<button id="next">下一张</button>
+	</div>
+<script>
+	window.onload=function(){
+		var img=document.getElementById('img');
+		var prev=document.getElementById('prev');
+		var next=document.getElementById('next');
+		var minIndex=1,maxIndex=9,currentIndex=1;
+		prev.onclick=function(){
+			if(currentIndex==minIndex){
+				currentIndex=maxIndex;
+			}
+				currentIndex--;
+				img.src='img/icon_0'+currentIndex+'.png';	
+		}
+		next.onclick=function(){
+			if(currentIndex==maxIndex){
+				currentIndex=minIndex;
+			}
+			currentIndex++;
+			img.src='img/icon_0'+currentIndex+'.png';
+		}
+		
+	};
+</script>
+</body>
+</html>

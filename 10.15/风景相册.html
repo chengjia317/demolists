@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>风景相册</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	#div{
+		width: 550px;
+		margin: 100px auto;
+	}
+	p{
+		color: darkblue;
+		font-size: 20px;
+	}
+	#big_pic{
+		background:url(img/1.jpg) no-repeat;
+		width: 550px;
+		height: 300px;
+	}
+	#small_pic img{
+		width: 100px;
+	}
+	#small_pic ul{
+		display: flex;
+		justify-content:space-between;
+		align-items: center;
+	}
+	
+	</style>
+</head>
+<body>
+	<div id="div">
+		<p>蒲公英</p>
+		<div id="big_pic"></div>
+		<div id="small_pic">
+			<ul>
+				<li>
+					<a href="javascript:;">
+						<img src="img/1.jpg" alt="蒲公英">
+					</a>
+				</li>
+				<li><a href="javascript:;"><img src="img/2.jpg" alt="热气球"></a></li>
+				<li><a href="javascript:;"><img src="img/3.jpg" alt="林间小屋"></a></li>
+				<li><a href="javascript:;"><img src="img/4.jpg" alt="山涧瀑布"></a></li>
+				<li><a href="javascript:;"><img src="img/5.jpg" alt="高速公路"></a></li>
+			</ul>
+		</div>
+	</div>
+	<script>
+		window.onload=function(){
+			var p=document.getElementsByTagName('p')[0];
+			var small_pic=document.getElementById('small_pic');
+			var big_pic=document.getElementById('big_pic');
+			var img=small_pic.getElementsByTagName('img');
+			for(var i=0;i<img.length;i++){
+				img[i].onclick=function(){
+				p.innerText=this.alt;
+				big_pic.style.background='url('+this.src+') no-repeat';
+			}
+
+			}
+		};
+	</script>
+</body>
+</html>

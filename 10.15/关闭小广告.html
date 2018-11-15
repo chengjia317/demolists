@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>关闭小广告</title>
+	<style>
+		#div{
+			position: relative;
+			top: 0;
+			left: 0;
+			width: 750px;
+		}
+		#close{
+			position: absolute;
+			top: 10px;
+			right: 0;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div id="div">
+		<img id="pic" src="img/pic03.jpg" >
+		<img id="close" src="img/close.jpg" style="width: 50px;height: 50px">
+	</div>	
+	<script>
+		window.onload=function(){
+		var oDiv=document.getElementById('div');
+		var pic=document.getElementById('pic');
+		var close=document.getElementById('close');
+		close.onclick=function(){
+			// pic.style.display='none';
+			// close.style.display='none';
+			this.parentNode.style.display='none';
+		}
+	};
+	</script>
+</body>
+</html>
