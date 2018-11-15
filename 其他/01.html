@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var arr=[1,2];
+		console.log(arr.constructor==Array);//true
+		console.log(arr instanceof Array);//true
+		console.log(Object.prototype.toString.call(arr));//[object Array]
+		console.log(Array.isArray(arr));//true
+		console.log(Array.prototype.isPrototypeOf(arr));//true
+	</script>
+</body>
+</html>

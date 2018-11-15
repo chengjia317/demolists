@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//1、先找出num1,num2,num3,max
+		var num1;
+		var num2;
+		var num3;
+		var max;
+		//2、用户输入数据
+		num1=Number(prompt('请输入第一个数'));
+		num2=Number(prompt('请输入第二个数'));
+		num3=+(prompt('请输入第三个数'));
+		//3、判断语句
+		max=num1>=num2?num1:num2;
+		max=max>=num3?max:num3;
+		//4、输出结果
+		alert(max);
+
+
+	</script>
+</body>
+</html>

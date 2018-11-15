@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/html">
+    //1. 从键盘输入一个整数，判断其是否是偶数，如果是偶数就输出YES，否则输出NO；
+    var num;
+    num=parseInt(prompt('请输入一个整数'));
+    if(num%2==0){
+        console.log('YES!这是偶数');
+    }else{
+        console.log('NO!这不是偶数');
+    }
+</script>
+<script type="text/html">
+    //2. 接收用户输入的1～7的整数，根据用户输入的整数，输出对应的星期几?
+    var num;
+    num=parseInt(prompt('请输入1-7的数字'));
+    if(isNaN(num)){
+        alert('输入错误!');
+    }else{
+        if(num>7||num<1){
+            alert('请输入1-7的数字');
+        }else{
+            if(1==num){
+                alert('星期一');
+            }else if(1==num){
+                alert('星期一');
+            } else if(2==num){
+                alert('星期二');
+            }else if(3==num){
+                alert('星期三');
+            }else if(4==num){
+                alert('星期四');
+            }else if(5==num){
+                alert('星期五');
+            }else if(6==num){
+                alert('星期六');
+            }else if(7==num){
+                alert('星期日');
+            }
+        }
+            }
+</script>
+<script type="text/html">
+    //3. 接收用户输入的一个整数month代表月份，根据月份输出对应的季节?
+    var month;
+    month=parseInt(prompt('请输入月份'));
+    if(isNaN(month)){
+        alert('请输入1-12的整数');
+    }else {
+        if(month>12||month<1){
+            alert('输入错误！');
+        }else{
+            if(month>=3&&month<=5){
+                alert('春天！')
+            }else if(month>=6&&month<=8){
+                alert('夏天！');
+            }else if(month>=9&&month<=11){
+                alert('秋天！');
+            }else{
+                alert('冬天！');
+            }
+        }
+    }
+</script>
+<script type="text/html">
+    //4. 从键盘输入2个整数，判断大小后输出较大的那个数?
+    var n1,n2;
+    n1=parseInt(prompt('请输入第一个数'));
+    n2=parseInt(prompt('请输入第二个数'));
+    if(n1>n2){
+        alert(n1);
+    }else if(n1<n2){
+        alert(n2);
+    }else{
+        alert('相等');
+    }
+
+</script>
+<script type="text/html">
+    //5. 从键盘输入3个整数，排序后输出?
+    var a,b,c,temp;
+    a=parseInt(prompt('请输入第一个数'));
+    b=parseInt(prompt('请输入第二个数'));
+    c=parseInt(prompt('请输入第三个数'));
+    if(a>b){
+        temp=a;
+        a=b;
+        b=temp;
+    }
+    if(b>c){
+        temp=b;
+        b=c;
+        c=temp;
+    }
+    if(a>b){
+        temp=a;
+        a=b;
+        b=temp;
+    }
+    console.log(a,b,c);
+
+</script>
+<script type="text/html">
+    //6. 石头剪子布实现?
+    var player,com;
+    com=Math.floor(Math.random()*3);
+    player=parseInt(prompt('请输入0,1,2'));
+    if(isNaN(player)){
+        alert('请重新输入');
+    }else{
+        if(player>2||player<0){
+            alert('请重新输入');
+        }else{
+            if(player === 0 && com === 2 || player === 1 && com === 0 || player === 2 && com === 1){
+                alert('WIN！');
+            }else if(com === 0 && player === 2 || com === 1 && player === 0 || com === 2 && player === 1){
+                alert('Lose!');
+            }else{
+                alert('平局');
+            }
+        }
+    }
+</script>
+<script type="text/html">
+    //1. 从键盘输入一个月份,输出对应季节 12~2 冬季 3~5 春季 6~ 8 夏季 9~11 秋季(用switch)
+    var month;
+    month=parseInt(prompt('请输入月份'));
+    if(isNaN(month)) {
+        alert('请输入1-12的整数');
+    }else {
+        switch(month){
+            case 3:
+            case 4:
+            case 5:
+                alert('春天');
+                break;
+            case 6:
+            case 7:
+            case 8:
+                alert('夏天');
+                break;
+            case 9:
+            case 10:
+            case 11:
+                alert('秋天');
+                break;
+            case 12:
+            case 1:
+            case 2:
+                alert('冬天');
+                break;
+            default:
+                alert('请重新输入');
+                break;
+        }
+    }
+</script>
+<script>
+    var n1,n2,op,re;
+    n1=+prompt('请输入第一个数字');
+    n2=+prompt('请输入第二个数字');
+    op=prompt('请输入运算符'); //不能转换为数字
+    switch (op){
+        case "+" :
+            re=n1+n2;
+            break;
+        case "-" :
+            re=n1-n2;
+            break;
+        case "*" :
+            re=n1*n2;
+            break;
+        case "/" :
+            re=n1/n2;
+            break;
+        default:
+            alert('请重新输入');
+            break;
+    }
+    alert('结果为'+re);
+
+
+</script>
+</body>
+</html>

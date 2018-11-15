@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+// 1) 求圆的周长和面积
+var meter,area;
+function circle(r) {
+    meter=Math.PI*r*r;
+    area=Math.PI*2*r;
+}
+circle(5);
+console.log(meter,area);
+// 2) 求2个数中的最大值
+function max(a,b) {
+    if(a>=b){
+        return a;
+    }else{
+        return b;
+    }
+}
+console.log(max(10,20));
+// 3) 求3个数中的最大值
+var allMax;
+function max1(c,d,e) {
+    allMax=c>d?c:d;
+    allMax=allMax>e?allMax:e;
+    return allMax;
+}
+console.log(max1(12,10,2));
+// 4) 求一组数中的最大值
+function arrayMax(arr) {
+    var max2=arr[0];
+    for(var i=0;i<arr.length;i++){
+        if(arr[i]>max2){
+            max2=arr[i];
+        }
+    }
+    return max2;
+}
+var res=arrayMax([4,28,34]);
+console.log(res);
+// 5) 求一组数中的最小值
+function arrayMin(arr1){
+    var min=arr1[0];
+    for(var j=0;j<arr1.length;j++){
+        if(arr1[j]<min){
+            min=arr1[j]
+        }
+    }
+    return min;
+}
+var res1=arrayMin([4,28,34]);
+console.log(res1);
+// 6) 翻转数组，返回一个新数组
+function reserve(arr2) {
+    for(var k=0;k<arr2.length/2;k++){
+        var temp=arr2[k];
+        arr2[k]=arr2[arr2.length-1-k];
+        arr2[arr2.length-1-k]=temp;
+    }
+    return arr2;
+}
+console.log(reserve([1,2,3,4,5]));
+</script>
+
+</body>
+</html>
