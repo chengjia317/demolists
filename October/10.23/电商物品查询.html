@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #top{
+            width: 350px;
+            height: 350px;
+            margin: 100px 0 0 100px;
+            position: relative;
+        }
+        #s_pic{
+            border: 1px solid #ccc;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        #pic{
+            width: 100px;
+            height: 100px;
+            background-color: rgba(255,255,0,0.4);
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: move;
+            display: none;
+        }
+        #l_pic{
+            width: 600px;
+            height: 600px;
+            border: 1px solid #ccc;
+            position: absolute;
+            top: 0;
+            left: 360px;
+            overflow: hidden;
+            display: none;
+        }
+        #l_pic img{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #bottom{
+            margin: 20px 0 0 100px;
+        }
+        #bottom img{
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+	<div id="top">
+        <div id="s_pic">
+            <img src="images/pic001.jpg" alt="">
+            <span id="pic"></span>
+        </div>
+        <div id="l_pic">
+            <img id="img" src="images/pic01.jpg" alt="">
+        </div>
+    </div>
+    <div id="bottom">
+        <img src="images/pic0001.jpg" alt="">
+        <img src="images/pic0002.jpg" alt="">
+        <img src="images/pic0003.jpg" alt="">
+    </div>
+    <script>
+        window.onload=function () {
+            var pic=document.getElementById('pic');
+            var s_pic=document.getElementById('s_pic');
+            var l_pic=document.getElementById('l_pic');
+            var bottom=document.getElementById('bottom');
+            var img=document.getElementById('img');
+
+            s_pic.onmouseover=function () {
+                pic.style.display='block';
+                l_pic.style.display='block';
+                s_pic.onmousemove=function (ev) {
+                    //算出坐标
+                    var disX=ev.clientX-this.offsetParent.offsetLeft-pic.offsetWidth*0.5;
+                    var disY=ev.clientY-this.offsetParent.offsetTop-pic.offsetHeight*0.5;
+                    //边界处理
+                    if(disX<0){
+                        disX=0;
+                    }else if(disX>s_pic.offsetWidth-pic.offsetWidth){
+                        disX=s_pic.offsetWidth-pic.offsetWidth;
+                    }
+                    if(disY<0){
+                        disY=0;
+                    }else if(disY>s_pic.offsetHeight-pic.offsetHeight){
+                        disY=s_pic.offsetHeight-pic.offsetHeight;
+                    }
+                    //动起来
+                    pic.style.left=disX+'px';
+                    pic.style.top=disY+'px';
+                    //获取右侧图片
+                    img.style.left=-disX*l_pic.offsetWidth/s_pic.offsetWidth+'px';
+                    img.style.top=-disY*l_pic.offsetHeight/s_pic.offsetHeight+'px';
+
+                }
+
+            };
+            s_pic.onmouseout=function (ev) {
+                pic.style.display='none';
+                l_pic.style.display='none';
+            };
+            for(var i=0;i<bottom.children.length;i++){
+               bottom.children[i].index=i+1;
+               bottom.children[i].onmouseover=function(){
+                   s_pic.children[0].src= 'images/pic00'+this.index+'.jpg';
+                   l_pic.src='images/pic0'+this.index+'.jpg';
+
+
+               }
+
+            }
+        }
+    </script>
+</body>
+</html>

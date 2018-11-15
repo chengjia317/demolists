@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border: none;
+        }
+        #div{
+            width: 800px;
+            height: 180px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        #ul{
+            width: 2600px;
+            position: absolute;
+            top: 9px;
+            left: -5px;
+        }
+        #ul li{
+            float: left;
+        }
+        #bottom{
+            width: 100%;
+            height: 25px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background-color: #e8e8e8;
+        }
+        #nav{
+            width: 200px;
+            height: 100%;
+            background-color: orangered;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+<body>
+	<div id="div">
+        <div id="top">
+            <ul id="ul">
+                <li><img src="images/img1.jpg" alt=""></li>
+                <li><img src="images/img2.jpg" alt=""></li>
+                <li><img src="images/img3.jpg" alt=""></li>
+                <li><img src="images/img4.jpg" alt=""></li>
+                <li><img src="images/img5.jpg" alt=""></li>
+                <li><img src="images/img6.jpg" alt=""></li>
+                <li><img src="images/img7.jpg" alt=""></li>
+                <li><img src="images/img8.jpg" alt=""></li>
+                <li><img src="images/img1.jpg" alt=""></li>
+                <li><img src="images/img2.jpg" alt=""></li>
+                <li><img src="images/img3.jpg" alt=""></li>
+                <li><img src="images/img4.jpg" alt=""></li>
+                <li><img src="images/img5.jpg" alt=""></li>
+                <li><img src="images/img6.jpg" alt=""></li>
+                <li><img src="images/img7.jpg" alt=""></li>
+                <li><img src="images/img8.jpg" alt=""></li>
+                <li><img src="images/img1.jpg" alt=""></li>
+                <li><img src="images/img2.jpg" alt=""></li>
+                <li><img src="images/img3.jpg" alt=""></li>
+                <li><img src="images/img4.jpg" alt=""></li>
+            </ul>
+        </div>
+        <div id="bottom">
+            <span id="nav"></span>
+        </div>
+    </div>
+    <script>
+        window.onload=function (ev) {
+          var nav=document.getElementById('nav');
+          var ul=document.getElementById('ul');
+          var bottom=document.getElementById('bottom');
+            // 滚动条长度 = ( 盒子的宽度 / 内容的宽度) * 盒子的宽度
+            var navlen=(bottom.offsetWidth/ul.offsetWidth)*bottom.offsetWidth;
+            nav.style.width=navlen+'px';
+          nav.onmousedown=function (ev2) {
+             var beginX=ev2.clientX-nav.offsetLeft;
+              document.onmousemove=function (ev3) {
+                  x=ev3.clientX-beginX;
+                  if(x<0){
+                      x=0;
+                  }else if(x>bottom.offsetWidth-nav.offsetWidth){
+                      x=bottom.offsetWidth-nav.offsetWidth;
+                  }
+                  nav.style.left=x+'px';
+                  // 内容走的距离 = （内容的长度 - 盒子的长度） \/ (盒子长度 - 滚动条的长度) * 滚动条走的距离
+                 var ulx=(ul.offsetWidth-bottom.offsetWidth)/(bottom.offsetWidth-navlen)*x;
+                 ul.style.left=-ulx+'px';
+                 return false;
+              }
+          };
+          document.onmouseup=function () {
+              this.onmousemove=null;
+          }
+        };
+    </script>
+</body>
+</html>
