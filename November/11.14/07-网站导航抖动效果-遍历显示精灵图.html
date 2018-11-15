@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    .box {
+        width: 350px;
+        height: 350px;
+        margin: 100px auto;
+        cursor: pointer;
+    }
+    .box ul li {
+        float: left;
+        width: 80px;
+        height: 80px;
+        text-align: center;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        margin: 2px;
+    }
+    .box>ul>li>span {
+        display: block;
+        width: 24px;
+        height: 24px;
+        background: url("images/bg.png") 0 -24px no-repeat;
+        margin: 10px auto;
+    }
+</style>
+</head>
+<body>
+  <div class="box">
+          <ul>
+              <li><span></span>百度</li>
+              <li><span></span>淘宝</li>
+              <li><span></span>新浪</li>
+              <li><span></span>网易</li>
+              <li><span></span>搜狐</li>
+              <li><span></span>腾讯</li>
+              <li><span></span>优酷</li>
+              <li><span></span>京东</li>
+          </ul>
+  </div>
+<script src="jquery-3.3.1.js" charset="utf-8"></script>
+<script>
+  $(function(){
+    $.each($('li'),function(index){
+      $(this).children('span').css('background','url("images/bg.png") 0 -'+24*index+'px no-repeat');
+    });
+    $('li').hover(function(){
+      shake(this);
+    },function(){
+      stopShake(this);
+    })
+    function shake(el){
+      $(el).css('position','relative');
+      var animateLeft=$(el).css('left')==='10px'?'-10px':'10px';
+      $(el).animate({
+        'left':animateLeft
+      },function(){
+        shake(el);
+      })
+    };
+    function stopShake(el){
+      $(el).stop(true,false).css('left',0);
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+  div{
+    width: 200px;
+    height: 200px;
+    background-color: pink;
+  }
+  </style>
+  <title>Document</title>
+</head>
+<body>
+  <div></div>
+  <button>start</button>
+  <button>end</button>
+<script src="jquery-3.3.1.js" charset="utf-8"></script>
+<script>
+  $(function(){
+    $('button').eq(0).click(function(){
+      $('div').animate({
+        'width':'300px',
+        'margin-left':'800px'
+      },1000)
+      $('div').delay(1000).animate({
+        'margin-left':'-300px'
+      },1000)
+    });
+    $('button').eq(1).click(function(){
+      $('div').stop(true,false);
+    })
+  })
+</script>
+
+</body>
+</html>
