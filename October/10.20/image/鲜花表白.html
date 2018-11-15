@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			background-color: #000;
+			text-align: center;
+		}
+		#div{
+			color: red;
+			font-size: 100px;
+			margin: 200px auto;
+		}
+		#img{
+			display: none;
+			margin: 100px auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="div">5</div>
+	<div>
+		<img id="img" src="image/flower.gif" alt="">
+	</div>
+<script>
+	window.onload=function(){
+		var div=document.getElementById('div');
+		var img=document.getElementById('img');
+		var time=null;
+		time=setInterval(function(){
+			div.innerHTML--;
+			if(div.innerHTML==='0'){
+				clearInterval(time);
+				div.style.display='none';
+				img.style.display='block';
+			}
+		},1000);
+	};
+</script>
+</body>
+</html>

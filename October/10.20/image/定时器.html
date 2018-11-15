@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#div{
+			color: red;
+			text-align: center;
+			font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div id="div"></div>
+<script>
+	window.onload=function(){
+		var time=null;
+		var div=document.getElementById('div');
+		var futureTime=new Date('2018/10/20 20:00:00');
+		time=setInterval(function(){
+		var currentTime=new Date();
+		var future=futureTime.getTime();
+		var current=currentTime.getTime();	
+		var lastTime=future-current;
+		var seconds=parseInt(lastTime/1000);
+		var d=parseInt(seconds/3600/24);
+		var h=parseInt(seconds/3600%24);
+		var m=parseInt(seconds/60%60);
+		var s=parseInt(seconds%60);
+		div.innerText='距离上课还有'+d+'天'+h+'小时'+m+'分钟'+s+'秒';
+		},1000)
+		
+		
+	};
+</script>
+</body>
+
+</html>

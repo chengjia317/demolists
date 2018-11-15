@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 220px;
+			height: 360px;
+			background-color: #e8e8e8;
+			margin-bottom:0 20px 20px 0;
+			
+		}
+		#bottom{
+			position: relative;
+
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<button id="btn1">3列</button>
+		<button id="btn2">4列</button>
+		<button id="btn3">5列</button>
+	</div>
+	<div id="bottom">
+	<div id="box">
+		<img src="image/2.jpg" alt="">
+		<h4>因为遇见你</h4>
+		<p>孙怡邓伦牵手演绎刺绣奇缘</p>
+	</div>
+	<div id="box">
+		<img src="image/3.jpg" alt="">
+		<h4>因为遇见你</h4>
+		<p>孙怡邓伦牵手演绎刺绣奇缘</p>
+	</div>
+	<div id="box">
+		<img src="image/4.jpg" alt="">
+		<h4>因为遇见你</h4>
+		<p>孙怡邓伦牵手演绎刺绣奇缘</p>
+	</div>
+	<div id="box">
+		<img src="image/5.jpg" alt="">
+		<h4>因为遇见你</h4>
+		<p>孙怡邓伦牵手演绎刺绣奇缘</p>
+	</div>
+	<div id="box">
+		<img src="image/6.jpg" alt="">
+		<h4>因为遇见你</h4>
+		<p>孙怡邓伦牵手演绎刺绣奇缘</p>
+	</div>
+	<div id="box">
+		<img src="image/7.jpg" alt="">
+		<h4>因为遇见你</h4>
+		<p>孙怡邓伦牵手演绎刺绣奇缘</p>
+	</div>
+	<div id="box">
+		<img src="image/8.jpg" alt="">
+		<h4>因为遇见你</h4>
+		<p>孙怡邓伦牵手演绎刺绣奇缘</p>
+	</div>
+	<div id="box">
+		<img src="image/9.jpg" alt="">
+		<h4>因为遇见你</h4>
+		<p>孙怡邓伦牵手演绎刺绣奇缘</p>
+	</div>
+	<div id="box">
+		<img src="image/10.jpg" alt="">
+		<h4>因为遇见你</h4>
+		<p>孙怡邓伦牵手演绎刺绣奇缘</p>
+	</div>
+	<div id="box">
+		<img src="image/11.jpg" alt="">
+		<h4>因为遇见你</h4>
+		<p>孙怡邓伦牵手演绎刺绣奇缘</p>
+	</div>
+	<div id="box">
+		<img src="image/12.jpg" alt="">
+		<h4>因为遇见你</h4>
+		<p>孙怡邓伦牵手演绎刺绣奇缘</p>
+	</div>
+	<div id="box">
+		<img src="image/13.jpg" alt="">
+		<h4>因为遇见你</h4>
+		<p>孙怡邓伦牵手演绎刺绣奇缘</p>
+	</div>
+	<div id="box">
+		<img src="image/14.jpg" alt="">
+		<h4>因为遇见你</h4>
+		<p>孙怡邓伦牵手演绎刺绣奇缘</p>
+	</div>
+	<div id="box">
+		<img src="image/15.jpg" alt="">
+		<h4>因为遇见你</h4>
+		<p>孙怡邓伦牵手演绎刺绣奇缘</p>
+	</div>
+	</div>
+<script>
+	window.onload=function(){
+		$('btn1').onclick=function(){
+			nine(3,$('bottom'));
+		};
+		$('btn2').onclick=function(){
+			nine(4,$('bottom'));
+		};
+		$('btn3').onclick=function(){
+			nine(5,$('bottom'));
+		};
+	};
+	function nine(allCols,parent){
+		var boxW=220,boxH=360,mxy=20;
+		for(var i=0;i<parent.children.length;i++){
+			var rows=Math.floor(i/allCols);
+			var cols=Math.floor(i%allCols);
+			parent.children[i].style.position='absolute';
+			parent.children[i].style.top=(boxH+mxy)*rows+'px';
+			parent.children[i].style.left=(boxW+mxy)*cols+'px';
+
+		}
+	}
+
+
+	function $(id){
+		return typeof id==='string'?document.getElementById(id):null;
+	}
+</script>
+</body>
+</html>
