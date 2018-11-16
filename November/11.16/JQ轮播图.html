@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  *{margin: 0;padding: 0;list-style:none;}
+  div{width: 520px;height: 280px;margin:100px auto;border: 1px solid orangered;overflow: hidden;}
+  ul{position: relative;}
+  li{position: absolute;top:0;left:0;}
+  img{width: 520px;height: 280px;}
+  </style>
+</head>
+<body>
+  <div>
+    <ul>
+      <li><img src="images/01.jpg" alt=""></li>
+    </ul>
+  </div>
+<script src="jquery-3.3.1.js" charset="utf-8"></script>
+<script>
+  $(function(){
+    //数据源,遍历img数据路径
+    var imgData=[];
+    for(var i=1;i<5;i++){
+      imgData.push('images/0'+i+'.jpg');
+    }
+    //设置索引
+    var currentIndex=0;
+    //开启事件
+    $(document).click(function(event){
+      //获取屏幕的一半，并定义标记符
+      var disX=$(window).width()/2;
+      var isLeft=true;
+      //判断,如果点击了左边部分
+      if(disX>=event.pageX){//左边
+        isLeft=true;
+        currentIndex--;
+        currentIndex=(currentIndex+imgData.length)%imgData.length;//处理边界值，由于currentIndex会出现负数，所以加上imgData的长度
+      }else{
+        isLeft=false;
+        currentIndex++;
+        currentIndex=currentIndex%imgData.length;
+      }
+      //创建节点
+      var imgName=imgData[currentIndex];
+      var $li=$('li').clone();//复制li
+      $li.children('img').attr('src',imgName);//设置复制的img的src属性
+      $li.prependTo('ul');
+      //动画展示
+      if(isLeft){
+        $('li:last').animate({
+          left:'-520px'
+        },500,function(){
+          $(this).remove();
+        })
+      }else{
+        $('li:last').animate({
+          left:'520px'
+        },500,function(){
+          $(this).remove();
+        })
+      }
+    })
+  })
+</script>
+</body>
+</html>
